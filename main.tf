@@ -32,16 +32,6 @@ resource "google_storage_bucket" "test-bucket" {
   name                        = "bu-test-bucket-superset-demo-${local.project_name}"
   location                    = "europe-west6"
   uniform_bucket_level_access = true
-  force_destroy               = true
-
-  lifecycle_rule {
-    condition {
-      age = 3
-    }
-    action {
-      type = "Delete"
-    }
-  }
 }
 
 resource "google_artifact_registry_repository" "my-repo" {
